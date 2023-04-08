@@ -2,7 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\WebController;
+use App\Http\Controllers\BackController;
 use App\Http\Controllers\EventoController;
+use App\Http\Controllers\BibliotecController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,7 +17,7 @@ use App\Http\Controllers\EventoController;
 |
 */
 
- //Pagina inicial
+
 
 
  Route::controller(WebController::class)->group(function () {
@@ -49,7 +51,6 @@ use App\Http\Controllers\EventoController;
 
     Route::middleware(['auth'])->group(function () {
 
-
         Route::get('users','users')->name('users');
         Route::get('user/{id}','user')->name('user');
         Route::post('updateuser','updateuser')->name('updateuser');
@@ -68,6 +69,37 @@ Route::controller(EventoController::class)->group(function () {
         Route::post('agenda/excluir_evento/{id}','destroy')->name('excluir_evento');
 });
 
+Route::controller(BackController::class)->group(function () {
 
-//terminar edit Usurio
+    Route::middleware(['auth'])->group(function () {
 
+        Route::get('dash','index')->name('dash_home');
+
+    });
+});
+
+Route::controller(BibliotecController::class)->group(function () {
+
+    Route::middleware(['auth'])->group(function () {
+
+        Route::get('admin/bibliotec','index')->name('bibliotec_list');
+        Route::get('admin/bibliotec_create','create')->name('bibliotec_create');
+        Route::post('admin/bibliotec_create','store')->name('bibliotec_create');
+        Route::get('admin/bibliotec_edit/{id}','edit')->name('bibliotec_edit');
+        Route::post('admin/bibliotec_update/{id}','update')->name('bibliotec_update');
+        Route::get('admin/bibliotec_delete/{id}','destroy')->name('bibliotec_delete');
+
+
+
+
+    });
+});
+
+
+
+//BackController
+//BibliotecController
+
+///config/filesystems.php
+
+//'default' => env('FILESYSTEM_DRIVER', 'public'),

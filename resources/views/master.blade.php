@@ -118,6 +118,7 @@
                             <ul>
                                 @if (auth()->user()->perfil == 'administrador')
                                     <li><a href="{{ route('users') }}">Usuários</a></li>
+                                    <li><a href="{{ route('dash_home') }}">Administrador</a></li>
                                 @endif
                                 <li><a href="{{ route('logout') }}">Sair</a></li>
                             </ul>

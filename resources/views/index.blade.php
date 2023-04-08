@@ -9,8 +9,7 @@
                     <img src="{{ url(asset('front/assets/img/hero-esquerd-img.png')) }}" class="img-fluid" alt="">
 
                     <div class="d-flex">
-                        <a href="https://iema.ma.gov.br/wp-content/uploads/2023/03/EDITAL-01.2023-1a-Olimpiada-Estadual-em-Historia-do-Maranhao-OEHM-12.pdf"
-                            target="_blank" class="btn-book-a-table">Saiba mais <i
+                        <a href="#quem-somos" class="btn-book-a-table">Saiba mais <i
                                 class="bi bi-chevron-down dropdown-indicator"></i></a>
                         {{-- @if (!Auth::check())
                             <a href="{{ route('login') }}" class="d-flex align-items-center btn-border">Login /
